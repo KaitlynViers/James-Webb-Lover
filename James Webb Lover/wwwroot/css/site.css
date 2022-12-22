@@ -1,0 +1,86 @@
+header{
+    color: white;
+    font-style:oblique;
+    background-color: black;
+    font-size: large
+}
+html {
+    top: 1000px;
+}
+
+@media (min-width: 768px) {
+    html {
+        
+        font-size: 16px;
+    }
+}
+
+html {
+   
+    margin: auto;
+    min-height: 100%;
+}
+
+h1 {
+    padding-top: 35px;
+    color: white;
+    font-style: oblique;
+    font-size: larger;
+}
+
+h2 {
+    padding-top: 75px;
+}
+
+h3{
+    color: white;
+    text-align: center;
+    font-style: oblique;
+    padding-top: 35px;
+}
+
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+
+
+body {
+    background-image: url('../images/home page.gif');
+    background-size: cover;
+}
+
+footer {
+    
+    position: absolute;
+    top: 1000px;
+}
+
+
+label{
+    color: white
+}
+
+#image-track > .image {
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: center;
+}
+
+#image-track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+label {
+    position: unset
+}

@@ -1,0 +1,108 @@
+﻿
+
+<h1>James Webb Photo Gallery</h1>
+
+
+<!-- The grid: four columns -->
+<div class="image-track">
+    <script>
+        const track = document.getElementById("image-track");
+
+        window.onmousedown = e => {
+            if (track.dataset.mouseDownAt === "0") return;
+            //track.dataset.mouseDownAt = e.clientx;
+            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.cloentx,
+                maxDelta = window.innerWidth / 2;
+
+            const percentage = (mouseDelta / maxDelta) * -100;
+            nextPercentage = parseFloat(track.dataset.prevPercantage) + percentage;
+
+            track.dataset.percentage = nextPercentage;
+
+            track.style.transform = `translate(${percentage}%, -50%)`;
+        }
+
+        window.onmouseup = () => {
+            track.dataset.mouseDownAt = "0";
+            track.dataset.prevPercentage = track.dataset.percentage;
+        }
+    </script>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            margin: 0rem;
+            overflow: hidden;
+        }
+
+        #image-track > .image {
+            width: 40vmin;
+            height: 56vmin;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        #image-track {
+            display: flex;
+            gap: 4vmin;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(0%, -50%);
+        }
+
+    </style>
+   
+    <img class="image" src="~/images/FirstImages.jpg" alt="James Webb's first picture" draggable="false" height="250" width="250>
+        <label>James Webb's First Photo</label>
+
+
+    <img class="image" src="~/images/GiantHand.jpg" alt="Pillars of Creation" draggable="false" height="250" width="250">
+        <label>Pillars of Creation</label>
+
+
+    <img class="image" src="~/images/Hurricane.jpg" alt="IC 5332" draggable="false" height="250" width="250">
+        <label>IC 5332</label>
+
+
+    <img class="image" src="~/images/Tarantula.jpg" alt="Trantula Nebula" draggable="false" height="250" width="250">
+        <label>Trantula Nebula</label>
+
+
+    <img class="image" src="~/images/southernringnebula.png" alt="Southern Ring Nebula" draggable="false" height="250" width="250">
+        <label>Southern Ring Nebula</label>
+
+
+    <img class="image" src="~/images/stephansquitent.png" alt="Stephan's Quintet'" draggable="false" height="250" width="250">
+        <label>Stephan's Quintet</label>
+
+
+    <img class="image" src="~/images/clustersave.png" alt="Carina Nebula Jets" draggable="false" height="250" width="250">
+        <label>Carina Nebula Jets</label>
+
+
+    <img class="image" src="~/images/ExoplanetWASP39bandstar.jpg" alt="ExoPlanet WASP 39 & Star" draggable="false" height="250" width="250">
+        <label>ExoPlanet WASP 39 & Star</label>
+
+
+    <img class="image" src="~/images/CartWheelGalaxy.png" alt="Cartwheel Galaxy" draggable="false" height="250" width="250">
+        <label>Cartwheel Galaxy</label>
+
+
+    <img class="image" src="~/images/l1527andprotostar.png" alt="1157 & Protostar" draggable="false" height="250" width="250">
+        <label>1157 & Protostar</label>
+    
+</div>
+
+<!-- The expanding image container -->
+<div class="container">
+    <!-- Close the image -->
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+    <!-- Expanded image -->
+    <img id="expandedImg" style="width:100%">
+
+    <!-- Image text -->
+    <div id="imgtext"></div>
+</div>
